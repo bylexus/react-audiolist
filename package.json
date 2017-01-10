@@ -1,0 +1,67 @@
+{
+  "name": "react-audiolist",
+  "version": "0.0.1",
+  "description": "A React component displaying a list of audio and a play control",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexander Schenkel <alex@alexi.ch>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "eslint": "^3.12.2",
+    "eslint-plugin-react": "^6.8.0",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "load-grunt-tasks": "^3.5.2",
+    "radium": "^0.18.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "plugins": [
+      "react"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "rules": {
+      "no-unused-vars": [
+        "error",
+        {
+          "vars": "all",
+          "args": "none"
+        }
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "curly": "error",
+      "eqeqeq": "error",
+      "no-eval": "error",
+      "no-loop-func": "error",
+      "radix": "error",
+      "no-undef": "error"
+    },
+    "globals": {}
+  }
+}
