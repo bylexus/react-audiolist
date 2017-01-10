@@ -36,6 +36,15 @@ class PlayButton extends React.Component {
         // transparent back:
         ctx.clearRect(0,0,width,height);
 
+        // dotted circle
+        ctx.setLineDash([1,2]);
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#aaa';
+        ctx.arc(centerX,centerY,centerX-1,0,Math.PI*2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
         // Progress circle
         ctx.beginPath();
         ctx.lineWidth = 2;
@@ -95,11 +104,11 @@ class PlayButton extends React.Component {
     }
 
     render() {
-        let {width} = Object.assign({
+        let {width, className: cname} = Object.assign({
             width: 30
         },this.props);
         return (
-            <a href="#" style={styles.link}
+            <a className={cname||''} href="#" style={styles.link}
                 onMouseDown={this.touchStart} onMouseUp={this.touchEnd}
                 onTouchStart={this.touchStart} onTouchEnd={this.touchEnd}>
                 <canvas ref="canvas" width={width} height={width}></canvas>

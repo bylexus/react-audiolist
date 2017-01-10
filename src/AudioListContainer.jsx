@@ -2,6 +2,7 @@ import React from  'react';
 import Radium, {Style} from 'radium';
 
 import PlayButton from './PlayButton.jsx';
+import TitleTextDisplay from './TitleTextDisplay.jsx';
 
 
 class AudioListContainer extends React.Component {
@@ -103,7 +104,7 @@ class AudioListContainer extends React.Component {
                             display: 'flex',
                             padding: 3,
                             flexDirection: 'row',
-                            alignItems: 'center',
+                            alignItems: 'flex-start',
                             borderBottom: '1px dotted black'
                         },
                         '.row:hover': {
@@ -112,8 +113,12 @@ class AudioListContainer extends React.Component {
                         '.row:last-child': {
                             borderBottom: 'none'
                         },
+                        '.controls': {
+                            marginRight: '3px'
+                        },
                         '.title': {
-                            flexGrow: 1
+                            flexGrow: 1,
+                            paddingTop: '3px'
                         },
                         '.time': {
                             borderRight: '1px dotted black'
@@ -122,14 +127,14 @@ class AudioListContainer extends React.Component {
                 <audio ref="player"><source ref="playerSource" /></audio>
                 {audiolist.map(( el,i ) => (
                     <div key={i} className="row">
-                        <PlayButton
+                        <PlayButton className="controls"
                             width={24}
                             progress={this.state.actualPlaying === el ? this.state.progress : 0}
                             onPlay={() => { this.play(el); }}
                             onPause={() => { this.pause(); }}
                             onReset={() => { this.reset(); }}
                             playing={this.state.isPlaying && this.state.actualPlaying === el} />
-                        <div className="title">{el.title}</div>
+                        <TitleTextDisplay className="title" title={el.title} text={el.text} />
                         <div
                             className="time"
                             style={{
