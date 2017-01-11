@@ -9,18 +9,37 @@ module.exports = function(grunt) {
             dev: {
                 files: {
                     'dist/react-audiolist-debug.js': ['src/main.jsx']
+                },
+                options: {
+                    watch: true,
+                    keepAlive: true,
+                    transform: [
+                        ["babelify", { presets: ["es2015","react"] }]
+                    ],
+                    browserifyOptions: {
+                        debug: true
+                    }
                 }
             },
-            options: {
-                watch: true,
-                keepAlive: true,
-                transform: [
-                    ["babelify", {
-                        presets: ["react", "es2015"]
-                    }]
-                ],
-                browserifyOptions: {
-                    debug: true
+            prod: {
+                files: {
+                    'dist/react-audiolist.js': ['src/main.jsx']
+                },
+                options: {
+                    transform: [
+                        ["babelify", { presets: ["es2015","react"] }]
+                    ],
+                    browserifyOptions: {
+                        debug: false
+                    }
+                }
+            }
+        },
+
+        uglify: {
+            prod: {
+                files: {
+                    'dist/react-audiolist.js': ['dist/react-audiolist.js']
                 }
             }
         }
@@ -28,6 +47,7 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['browserify:dev']);
+    grunt.registerTask('prod', ['browserify:prod','uglify:prod']);
 
 };
 

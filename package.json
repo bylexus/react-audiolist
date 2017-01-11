@@ -17,6 +17,7 @@
     "eslint-plugin-react": "^6.8.0",
     "grunt": "^1.0.1",
     "grunt-browserify": "^5.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "load-grunt-tasks": "^3.5.2",
     "marked": "^0.3.6",

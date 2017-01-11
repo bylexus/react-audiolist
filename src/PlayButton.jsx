@@ -121,9 +121,9 @@ PlayButton.propTypes = {
     width: React.PropTypes.number,
     playing: React.PropTypes.bool,
     progress: React.PropTypes.number,
-    onPlay: React.PropTypes.func.isReqiured,
-    onReset: React.PropTypes.func.isReqiured,
-    onPause: React.PropTypes.func.isReqiured
+    onPlay: React.PropTypes.func.isRequired,
+    onReset: React.PropTypes.func.isRequired,
+    onPause: React.PropTypes.func.isRequired
 };
 
 
