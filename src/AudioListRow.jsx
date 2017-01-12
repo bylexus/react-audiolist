@@ -3,6 +3,7 @@ import Radium, {Style} from 'radium';
 
 import PlayButton from './PlayButton.jsx';
 import TitleTextDisplay from './TitleTextDisplay.jsx';
+import RangeInput from './RangeInput.jsx';
 
 
 class AudioListRow extends React.Component {
@@ -77,6 +78,11 @@ class AudioListRow extends React.Component {
         return `${min}:${sec}`;
     }
 
+    seekTo(seconds) {
+        this.refs.player.currentTime = seconds;
+        this.updateProgress();
+    }
+
     render() {
         const {entry} = this.props;
         return (
@@ -116,6 +122,7 @@ class AudioListRow extends React.Component {
                     onReset={() => { this.reset(); }}
                     playing={this.state.playing} />
                 <TitleTextDisplay className="title" title={entry.title} text={entry.text} />
+                <RangeInput value={this.state.currentTime} min={0} max={entry.duration} onChange={(value) => this.seekTo(value)}/>
                 <div className="time"> {this.renderDuration(this.state.currentTime)}</div>
                 <div className="duration">{this.renderDuration(entry.duration)}</div>
             </div>
