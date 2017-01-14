@@ -42,7 +42,7 @@ class RangeInput extends React.Component {
     render() {
         let {min = 0, max = 100,step = 1} = this.props;
         return (
-            <input type="range" value={this.state.value} min={min} max={max} step={step} onChange={this.onSliderChange}
+            <input {...this.props} type="range" value={this.state.value} min={min} max={max} step={step} onChange={this.onSliderChange}
                 onTouchStart={this.onMoveStart}
                 onTouchEnd={this.onMoveEnd}
                 onMouseDown={this.onMoveStart}

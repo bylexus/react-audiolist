@@ -108,7 +108,7 @@ class PlayButton extends React.Component {
             width: 30
         },this.props);
         return (
-            <a className={cname||''} href="#" style={styles.link}
+            <a className={cname||''} href="#" style={styles.link} onClick={(e) => e.preventDefault()}
                 onMouseDown={this.touchStart} onMouseUp={this.touchEnd}
                 onTouchStart={this.touchStart} onTouchEnd={this.touchEnd}>
                 <canvas ref="canvas" width={width} height={width}></canvas>

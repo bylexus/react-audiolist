@@ -42,12 +42,20 @@ module.exports = function(grunt) {
                     'dist/react-audiolist.js': ['dist/react-audiolist.js']
                 }
             }
+        },
+        env: {
+            dev: {
+                NODE_ENV: 'development'
+            },
+            prod: {
+                NODE_ENV: 'production'
+            }
         }
     });
 
     // Default task(s).
-    grunt.registerTask('default', ['browserify:dev']);
-    grunt.registerTask('prod', ['browserify:prod','uglify:prod']);
+    grunt.registerTask('default', ['env:dev','browserify:dev']);
+    grunt.registerTask('prod', ['env:prod','browserify:prod','uglify:prod']);
 
 };
 

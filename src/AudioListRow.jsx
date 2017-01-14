@@ -109,6 +109,9 @@ class AudioListRow extends React.Component {
                             flexGrow: 1,
                             paddingTop: '3px'
                         },
+                        '.progress-slider': {
+                            maxWidth: '100px'
+                        },
                         '.time': {
                             borderRight: '1px dotted black'
                         }
@@ -122,7 +125,7 @@ class AudioListRow extends React.Component {
                     onReset={() => { this.reset(); }}
                     playing={this.state.playing} />
                 <TitleTextDisplay className="title" title={entry.title} text={entry.text} />
-                <RangeInput value={this.state.currentTime} min={0} max={entry.duration} onChange={(value) => this.seekTo(value)}/>
+                <RangeInput className="progress-slider" value={this.state.currentTime} min={0} max={entry.duration} onChange={(value) => this.seekTo(value)}/>
                 <div className="time"> {this.renderDuration(this.state.currentTime)}</div>
                 <div className="duration">{this.renderDuration(entry.duration)}</div>
             </div>

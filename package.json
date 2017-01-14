@@ -19,6 +19,7 @@
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-env": "^0.4.4",
     "load-grunt-tasks": "^3.5.2",
     "marked": "^0.3.6",
     "radium": "^0.18.1",
